@@ -1,0 +1,108 @@
+{% load static %}
+<html>
+    <title>
+        Toullie
+    </title>
+    <div style ="background:#000000;">
+    <head>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+		<link rel="icon" type="image/jpg" href="{% static 'images/icono.png' %}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+		<script src="{% static 'javascript/$(function().js' %}"></script>
+		
+
+      </head>
+
+	<body>
+		  
+			<div class ="container-fluid">
+				<nav class="navbar fixed-top navbar-expand-md navbar-dark bg-info">
+					<a class="navbar-brand" href="#">Toullie hamburguesas</a>
+						<img src ="{% static 'images/icono.png' %}" width="30"	height="30" class="d-inline-block">				
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					  <span class="navbar-toggler-icon"></span>
+					</button>
+				  
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					  <ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+						  <a class="nav-link" href="{% url 'home' %}">Inicio <span class="sr-only">(current)</span></a>
+						</li>
+{% if user.is_anonymous %}
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					  <ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+						  <a class="nav-link" href="{% url 'registro' %}">Registrate <span class="sr-only">(current)</span></a>
+						</li>
+{% endif %}
+						
+						
+						
+{% if user.is_staff %}						  
+						  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+								<ul class="navbar-nav mr-auto">
+								<li class="nav-item active">
+							<a class="nav-link" href="{% url 'producto' %}">Editar <span class="sr-only">(current)</span></a>
+								</li>
+{% endif %}
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							  <a class="dropdown-item" href="C:\Users\paulo\Desktop\toullie hamburguesas web/IniciarSesion.html">Iniciar sesion</a>
+							  <a class="dropdown-item" href="C:\ProyectoToullie\toullie\toullieweb\templates\registro.html">registro</a>
+							  <div class="dropdown-divider"></div>
+							  <a class="dropdown-item" href="#">Sobre nosotros</a>
+					
+							</div>
+						  </li> 
+						  </ul>
+					
+					
+						  
+						
+{% block barra_busqueda %}
+<form class="form-inline my-2 my-lg-0">
+						<input class="form-control mr-sm-2-info" type="Buscar" placeholder="Buscar" aria-label="Buscar">
+						<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</Buscar></button>
+ {% endblock barra_busqueda %}
+{% if user.is_authenticated %}
+							<ul class = "navbar-nav mr-auto">
+								<li class="nav-item nav-link">Hola {{user.get_username}}</li>
+								<li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
+								</button>
+							
+{% else %}
+								<li class="nav-item" href="{% url 'login' %}?next={{request.path}}" class="nav-link" >Login</a></li>
+								
+{% endif %}
+							</ul>
+					  </form>
+					</div>
+				  </nav>
+				  
+        <br>
+        
+        
+        
+    <br>
+    <br>
+          
+				  
+				  <br>
+				  {% block tituloPagina %}
+				  {% endblock %}
+				  <br>
+				  
+				  {% block contenido %}
+				  {% endblock %}
+				  <br>
+				  {% block listado %}
+				  {% endblock %}
+
+				  
+			</div>
+		</body>
+	  
+	</html>

@@ -1,0 +1,35 @@
+{% extends "plantillabase2.html" %}
+
+	  
+				  {% block tituloPagina %}
+				  <div class="row justify-content-center">
+						<h1>Iniciar sesión</h1>
+				  </div>
+				  {% endblock %}
+				  
+				{% block contenido %}
+					{% if form.errors%}
+						<p>Usuario o clave no son válidas para el ingreso</p>
+					{% endif%}
+      
+      
+	  <form action="{% url 'login' %}" method="post">
+		  {% csrf_token %}
+
+		  <div class="form-group col-12 col-md-6 offset-md-3 ">
+			  <input class="  form-control" type="text" name="username"  placeholder="Ingrese Usuario">
+				<small id="emailHelp" class="form-text text-muted"  >Nosotros nunca compartiremos tu correo con alguien más.</small>
+		  </div>
+		  <div class="form-group col-12 col-md-6 offset-md-3"> 
+			  <input class=" txtPas form-control" type="password" name="password"  placeholder="Ingrese su Contraseña">
+		  </div>
+		  <div>
+			<button type="submit" class="btnEnviar btn btn-success offset-md-4" value="Enviar">Entrar</button>
+		  </div>
+		  
+	  
+		  
+		
+		
+		</div>
+				{% endblock %}

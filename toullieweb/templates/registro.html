@@ -1,0 +1,190 @@
+{% extends "plantillabase2.html" %}	
+
+				  {% block tituloPagina %}
+				  <div class="row justify-content-center">
+						<h1>Registro de usuarios</h1>
+				  </div>
+				  {% endblock %}
+				  
+				{% block contenido %}
+				<form action="{% url 'registro' %}" method="post">
+					{% csrf_token %}
+					<section class="form-register">
+						<input class="controls txtRutt form-control"  type="number" name="txtRut" placeholder="Ingrese su Rut" pattern="[0-9]{9}" required>
+						<input class="controls txtNomb form-control" maxlength= "20" type="text" pattern="[a-z]{1,15}" name="txtNombr" placeholder="Ingrese su Nombre">
+						<input class="controls txtApellid form-control" type="text" name="txtApellido" placeholder="Ingrese sus Apellidos">
+						<input class="controls txtCorre form-control" type="text" name="txtCorreo"  placeholder="Ingrese Correo">
+						<input class="controls txtPas form-control" type="password" name="txtPass"  placeholder="Ingrese su Contraseña">
+						<input class="controls txtTel form-control" type="number" name="Telefono"  placeholder="Ingrese su Numero de Telefono">
+						<input class="controls txtDate form-control" type="date" min=2001-12-31 max="2020-12-31" name="nacimiento" placeholder="Fecha de Nacimiento">
+						
+
+						<select class= "select-css" name="selectCiudad">
+						  <option value="0">Seleccionar ciudad</option>
+						  <option value="1">Arica</option>
+						  <option value="2">Camarones</option>
+						  <option value="3">Putre</option>
+						  <option value="4">General Lagos</option>
+						  <option value="5">Iquique</option>
+						  <option value="6">Camiña</option>
+						  <option value="7">Colchane</option>
+						  <option value="8">Huara</option>
+						  <option value="9">Pica</option>
+						  <option value="10">Pozo Almonte</option>
+						  <option value="11">Alto Hospicio</option>
+						  <option value="12">Antofagasta</option>
+						  <option value="13">Mejillones</option>
+						  <option value="14">Sierra Gorda</option>
+						  <option value="15">Taltal</option>
+						  <option value="16">Calama</option>
+						  <option value="17">Ollagüe</option>
+						  <option value="18">San pedro de atacama</option>
+						  <option value="19">Tocopilla</option>
+						  <option value="20">Maria Elena</option>
+						  <option value="21">Copiapó</option>
+						  <option value="22">Caldera</option>
+						  <option value="23">Tierra Amarilla</option>
+						  <option value="24">Chañaral</option>
+						  <option value="25">Diego de Almagro</option>
+						  <option value="26">Vallenar</option>
+						  <option value="27">Alto del Carmen</option>
+						  <option value="28">Freirina</option>
+						  <option value="29">Huasco</option>
+						  <option value="30">La Serena</option>
+						  <option value="31">Coquimbo</option>
+						  <option value="32">Andacollo</option>
+						  <option value="33">La Higuera</option>
+						  <option value="34">Paiguano</option>
+						  <option value="35">Vicuña</option>
+						  <option value="36">Illapel</option>
+						  <option value="37">Canela</option>
+						  <option value="38">Los Vilos</option>
+						  <option value="39">Salamanca</option> 
+						  <option value="40">Ovalle</option>
+						  <option value="41">Combarbalá</option>
+						  <option value="42">Monte Patria</option>
+						  <option value="43">Punitaqui</option>
+						  <option value="44">Río Hurtado</option>
+						  <option value="45">Valparaíso</option>
+						  <option value="46">Casa Blanca</option>
+						  <option value="47">Concón</option>
+						  <option value="48">Juan Fernández</option>
+						  <option value="49">Puchincavi</option>
+						  <option value="50">Quilpué</option>
+						  <option value="51">Quintero</option>
+						  <option value="52">Villa Alemana</option>
+						  <option value="53">Viña del Mar</option>
+						  <option value="54">Isla de Pascua</option>
+						  <option value="55">Los Andes</option>
+						  <option value="56">Calle Larga</option>
+						  <option value="57">Rinconada</option>
+						  <option value="58">San Esteban</option>
+						  <option value="59">La Ligua</option>
+						  <option value="60">Cabildo</option>
+						  <option value="61">Papudo</option>
+						  <option value="62">Petorca</option>
+						  <option value="63">Zapallar</option>
+						  <option value="64">Quillota</option>
+						  <option value="65">Calera</option>
+						  <option value="66">Hijuelas</option>
+						  <option value="67">La Cruz</option>
+						  <option value="68">Limache</option>
+						  <option value="69">Nogales</option>
+						  <option value="70">Olmué</option>
+						  <option value="71">San Antonio</option>
+						  <option value="72">Algarrobo</option>
+						  <option value="73">Rancagua</option>
+						  <option value="74">Cartagena</option>
+						  <option value="75">El Quisco</option>
+						  <option value="76">El Tabo</option>
+						  <option value="77">Santiago</option>
+						  <option value="78">Cerrillos</option>
+						  <option value="79">Cerro Navia</option>
+						  <option value="80">Conchalí</option>
+						  <option value="81">Estación Central</option>
+						  <option value="82">Huechuraba</option>
+						  <option value="83">Independencia</option>
+						  <option value="84">La Cisterna</option>
+						  <option value="85">La Florida</option>
+						  <option value="86">La Granja</option>
+						  <option value="87">La Pintana</option>
+						  <option value="88">La Reina</option>
+						  <option value="89">Las Condes</option>
+						  <option value="90">Lo Barnechea</option>
+						  <option value="91">Lo Espejo</option>
+						  <option value="92">Macul</option>
+						  <option value="93">Maipú</option>
+						  <option value="94">Ñuñoa</option>
+						  <option value="95">Pedro Aguirre Cerda</option>
+						  <option value="96">Peñalolén</option>
+						  <option value="97">Providencia</option>
+						  <option value="98">Pudahuel</option>
+						  <option value="99">Quilicura</option>
+						  <option value="100">Quinta Normal</option>
+						  <option value="101">Recoleta</option>
+						  <option value="102">Renca</option>
+						  <option value="103">San Joaquín</option>
+						  <option value="104">San Miguel</option>
+						  <option value="105">San Ramón</option>
+						  <option value="106">Vitacura</option>
+						  <option value="107">Puente Alto</option>
+						  <option value="108">Pirque</option>
+						  <option value="109">San José de Maipo</option>
+						  <option value="110">Colina</option>
+						  <option value="115">Lampa</option>
+						  <option value="116">Tiltil</option>
+						  <option value="117">San Bernardo</option>
+						  <option value="118">Buin</option>
+						  <option value="119">Calera de Tango</option>
+						  <option value="120">Paine</option>
+						  <option value="121">Melipilla</option>
+						  <option value="122">Alhué</option>
+						  <option value="123">Curacaví</option>
+						  <option value="124">María Pinto</option>
+						  <option value="125">San Pedro</option>
+						  <option value="126">Talagante</option>
+						  <option value="127">El Monte</option>
+						  <option value="128">Isla de Maipo</option>
+						  <option value="129">Padre Hurtado</option>
+						  <option value="130X">Peñaflor</option>
+						
+						</select>
+						
+						<select class= "select-css" name="selectReg">
+						  <option value="0">Seleccionar region</option>
+						  <option value="1">Aisén del G. Carlos Ibáñez del Campo</option>
+						  <option value="2">Antofagasta</option>
+						  <option value="3">Arica y Parinacota</option>
+						  <option value="4">Atacama</option>
+						  <option value="5">Biobío</option>
+						  <option value="6">Coquimbo</option>
+						  <option value="7">La Araucanía</option>
+						  <option value="8">Libertador General Bernardo O'Higgins</option>
+						  <option value="9">Los Lagos</option>
+						  <option value="10">Los Ríos</option>
+						  <option value="11">Magallanes y de la Antártica Chilena</option>
+						  <option value="12">Maule</option>
+						  <option value="13">Metropolitana de Santiago</option>
+						  <option value="14">Ñuble</option>
+						  <option value="15">Tarapacá</option>
+						  <option value="16">Valparaíso</option>
+						</select>
+						<select class= "select-css" name="selectEd">
+						  <option value="0">Seleccionar educacion</option>
+						  <option value="1">Educacion Basica completa</option>
+						  <option value="2">Educacion Media completa</option>
+						  <option value="3">Educacion Superior Completa</option>
+						  <option value="4">Magistrado</option>
+						  <option value="5">Doctorado</option>
+						  <option value="6">Otro</option>
+						</select>
+
+						<p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
+						<button name="btnEnviarr"class="btnEnviar btn btn-success">Enviar</button>
+						
+						<p><a href="{% url 'login' %}">¿Ya tengo Cuenta?</a></p>
+					  </section>
+				</form>	
+				
+		  </body>
+				{% endblock %}
